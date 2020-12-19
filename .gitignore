@@ -1,5 +1,7 @@
+node_modules/
 test/
 Screenshots/
 .idea/
 *.jpg
 ignored/
+Downloads/

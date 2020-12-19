@@ -1,0 +1,27 @@
+{
+  "name": "scripts",
+  "version": "0.0.1",
+  "description": "Personal scripts",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noxware/scripts.git"
+  },
+  "author": "Noxware",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Noxware/scripts/issues"
+  },
+  "homepage": "https://github.com/Noxware/scripts#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "puppeteer": "^5.5.0",
+    "winston": "^3.3.3"
+  }
+}
