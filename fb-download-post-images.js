@@ -1,5 +1,7 @@
 // @ts-check
 
+// TODO: Save last url into separate file. if no args and file in place prompt for recovery.
+
 /// Imports
 const puppeteer = require("puppeteer");
 const axios = require("axios").default;
@@ -130,7 +132,10 @@ async function main() {
 
   while (true) {
     // Download source and count
-    const src = await page.$eval(IMAGE_SELECTOR, (e) => e.src);
+    const src = await page.$eval(
+      IMAGE_SELECTOR,
+      (/** @type {any} */ e) => e.src
+    );
     await limitedDownload(src);
     untilRenew++;
 
@@ -139,7 +144,7 @@ async function main() {
 
     // Navigate to the next image
     await page.waitForTimeout(SLOW_TIMEOUT);
-    await page.$eval(NEXT_SELECTOR, (e) => e.click());
+    await page.$eval(NEXT_SELECTOR, (/** @type {any} */ e) => e.click());
     await page.waitForSelector(IMAGE_SELECTOR + `:not([src="${src}"])`);
 
     // Memory optimization trick (avoid fb image accumulation by closing the tab)
