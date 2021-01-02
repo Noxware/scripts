@@ -28,3 +28,8 @@ Having a list of urls (separated by spaces or new line characters) copied
 in your clipboard, run this script to open all those urls.
 
 > Depends on 'pyperclip'.
+
+## flatdir.py
+
+Generates a folder called 'Flattened' containing every file in the current
+folder and its sub folders.
