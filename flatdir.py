@@ -3,7 +3,7 @@
 from pathlib import Path
 from datetime import datetime
 from base64 import b32encode
-from shutil import move
+from shutil import copy
 
 
 FLAT_DIR = Path('./Flattened')
@@ -55,7 +55,7 @@ def safe_path(p: Path) -> Path:
             return safe_path(new_p)
 
 
-def safe_move(source: Path, target: Path) -> None:
+def safe_copy(source: Path, target: Path) -> None:
     """
     Moves a file using shutil.move(). If the target file already exists
     safe_path() will be used to get a new unique filename. The parent
@@ -63,7 +63,7 @@ def safe_move(source: Path, target: Path) -> None:
     """
 
     target.parent.mkdir(parents=True, exist_ok=True)
-    move(source, safe_path(target))
+    copy(source, safe_path(target))
 
 
 def iter_subfiles(folder: Path):
@@ -74,7 +74,7 @@ def iter_subfiles(folder: Path):
 
 def main():
     for file in iter_subfiles(Path('.')):
-        safe_move(file, FLAT_DIR / file.name)
+        safe_copy(file, FLAT_DIR / file.name)
 
 
 if __name__ == '__main__':
